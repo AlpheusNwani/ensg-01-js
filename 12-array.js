@@ -56,25 +56,25 @@ const students = [
 // Practice nested arrays with this
 {
     const students = [
-    ["John", "Jane", "Mike"],
+        ["John", "Jane", "Mike"],
 
-    ["David", "Sarah", "Peter"],
+        ["David", "Sarah", "Peter"],
 
-    [
-        "Paul",
-        "Grace",
         [
-            "Daniel",
-            "Esther",
+            "Paul",
+            "Grace",
             [
-                "James",
+                "Daniel",
+                "Esther",
                 [
-                    "Michael",
-                    "Sophia",
-                    "Robert"
+                    "James",
+                    [
+                        "Michael",
+                        "Sophia",
+                        "Robert"
+                    ]
                 ]
             ]
         ]
-    ]
-];
+    ];
 }
