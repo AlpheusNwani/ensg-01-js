@@ -108,7 +108,7 @@ console.log(currentCountState);
 const bankAccount = {
     accountBalance: 5000,
     makeDeposit: function(amount) {
-        return this.accountBalance += amount;
+        this.accountBalance += amount;
     },
     withdraw(amount) {
         // guard
@@ -117,7 +117,7 @@ const bankAccount = {
             return;
         }
 
-        return this.accountBalance -= amount;
+        this.accountBalance -= amount;
     },
     getAccountBalance() {
         return this.accountBalance;
