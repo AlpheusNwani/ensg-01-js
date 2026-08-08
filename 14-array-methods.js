@@ -83,3 +83,183 @@ const products = [
     console.log(filteredStrings);
     console.log(strings);
 }
+
+const products = [
+    {
+        name: "Laptop",
+        price: 500000,
+        category: "Electronics"
+    },
+    {
+        name: "Office Chair",
+        price: 85000,
+        category: "Furniture"
+    },
+    {
+        name: "Backpack",
+        price: 25000,
+        category: "Accessories"
+    },
+    {
+        name: "Headphones",
+        price: 45000,
+        category: "Electronics"
+    }
+];
+
+const filteredProducts = products.filter((product, index) => {
+    // return product.category !== "Electronics";
+    // return product.price >= 30000;
+    return index % 2 !== 0;
+});
+
+console.log(filteredProducts);
+
+// Map() method
+// - It returns a new array
+// - It doesn't modify the original array
+// Syntax: array.method(callback)
+
+// Basic map example
+const numbers = [1, 2, 3, 4, 5];
+const tripledNumbers = numbers.map((num) => num * 3);
+console.log(tripledNumbers);
+
+/* 
+const prices = [1200, 4500, 3000, 800];
+Task:
+
+Using the map() method:
+
+Create a new array called discountedPrices
+
+Apply a 10% discount to each price
+
+Return the new array
+
+*/
+
+const prices = [1200, 4500, 3000, 800];
+// 10% = 10 / 100
+
+const discountedPrices = prices.map(price => {
+    return price - (0.1 * price);
+});
+
+console.log(discountedPrices);
+
+{
+    const strings = ["apple", "banana", "orange"];
+    const modifiedStrings = strings.map(str => {
+        return str.toUpperCase();
+    });
+    console.log(modifiedStrings);
+}
+
+/* 
+
+const customers = ["Chioma", "David", "Amina", "Tunde"];
+
+Task: Return the first 3 letters of each customer name as a new array
+
+*/
+
+const customers = ["Chioma", "David", "Amina", "Tunde"];
+
+const shorterCustomerNames = customers.map(customer => customer.slice(0, 3));
+console.log(shorterCustomerNames);
+
+
+/* 
+You are given student data:
+
+const students = [
+  { name: "John", score: 45 },
+  { name: "Mary", score: 80 },
+  { name: "Ali", score: 67 },
+  { name: "Grace", score: 92 }
+];
+
+Task:
+
+Using map():
+
+Return a new array of objects
+
+Add a new property called status
+
+"Pass" if score is 50 or above
+
+"Fail" if below 50
+
+Expected Output:
+
+[
+  { name: "John", score: 45, status: "Fail" },
+]
+
+
+*/
+
+
+{
+    const students = [
+        { name: "John", score: 45 },
+        { name: "Mary", score: 80 },
+        { name: "Ali", score: 67 },
+        { name: "Grace", score: 92 }
+    ];
+
+    const studentsStatus = students.map(student => {
+        let status;
+
+        if (student.score >= 50) {
+            status = "pass";
+        } else {
+            status = "fail";
+        }
+
+        return {
+            name: student.name,
+            score: student.score,
+            status
+        }
+    });
+
+    console.log(studentsStatus);
+}
+
+
+/* 
+==================== Task =====================
+
+You are given user data from a backend:
+
+const users = [
+  { id: 1, firstName: "Jane", lastName: "Doe", isActive: true },
+  { id: 2, firstName: "Mark", lastName: "Smith", isActive: false },
+  { id: 3, firstName: "Sarah", lastName: "Johnson", isActive: true }
+];
+Task:
+
+Using map():
+
+Return a new array
+
+Combine firstName and lastName into fullName
+
+Replace isActive with:
+
+"Active User" if true
+
+"Inactive User" if false
+
+Remove the original firstName and lastName properties
+
+Expected structure:
+
+[
+  { id: 1, fullName: "Jane Doe", status: "Active User" },
+]
+
+*/

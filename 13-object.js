@@ -162,3 +162,61 @@ It sets cartItems back to an empty array.
 
 */
 
+/* 
+this.cartItems.push({name, price, quantity});
+this.cartItems.push({
+    name: "Klin Detergent", 
+    price: 400, 
+    quantity: 10
+});
+
+*/
+
+const shoppingCart = {
+    cartItems: [],
+    total: 0,
+    addItem(name, price, quantity) {
+        this.cartItems.push({name, price, quantity});
+    },
+    calculateTotal() {
+        let totalItemAmount = 0;
+        for (const item of this.cartItems) {
+            totalItemAmount = totalItemAmount + (item.price * item.quantity);
+        }
+        this.total = totalItemAmount
+        return totalItemAmount;
+    },
+    displayCart() {
+        for (const item of this.cartItems) {
+            console.log(`Item Name: ${item.name}`);
+            console.log(`Price: ${item.price}`);
+            console.log(`Quantity: ${item.quantity}`);
+            console.log("-------------------------");
+        }
+    },
+    checkout() {
+        if (this.cartItems.length === 0) {
+            console.log("Your cart is empty");
+            return;
+        }
+
+        console.log(`The total amount to be paid is ${this.total}`);
+        this.clearCart();
+    },
+    getCartItems() {
+        return this.cartItems;
+    },
+    clearCart() {
+        this.cartItems = [];
+    }
+}
+
+shoppingCart.addItem("Detergent", 500, 10);
+shoppingCart.addItem("Phone stand", 5500, 1);
+shoppingCart.addItem("Screen protector", 3500, 2);
+console.log(shoppingCart.getCartItems());
+console.log(shoppingCart.displayCart());
+shoppingCart.calculateTotal();
+console.log(shoppingCart.total);
+shoppingCart.checkout();
+console.log(shoppingCart.getCartItems());
