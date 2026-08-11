@@ -240,8 +240,8 @@ const users = [
   { id: 2, firstName: "Mark", lastName: "Smith", isActive: false },
   { id: 3, firstName: "Sarah", lastName: "Johnson", isActive: true }
 ];
-Task:
 
+Task:
 Using map():
 
 Return a new array
@@ -263,3 +263,137 @@ Expected structure:
 ]
 
 */
+
+{
+    const users = [
+        { id: 1, firstName: "Jane", lastName: "Doe", isActive: true },
+        { id: 2, firstName: "Mark", lastName: "Smith", isActive: false },
+        { id: 3, firstName: "Sarah", lastName: "Johnson", isActive: true }
+    ];
+
+    // 1. Replace firstName and lastName with fullName
+    // 2. Replace isActive with "Active user" when isActive is true, otherwise, we use "Inactive user"
+    const modifiedUsersData = users.map((user) => {
+        return {
+            id: `${user.id}`,
+            fullName: `${user.firstName} ${user.lastName}`,
+            isActive: `${user.isActive ? "Active user" : "Inactive user"}`
+        }
+    });
+
+    console.log(modifiedUsersData);
+    console.log(users);
+}
+
+
+// Reduce Method
+// Syntax: array.reduce(callback function, initial value)
+// It doesn't modify the original array
+// It return a single value
+
+{
+    const prices = [1000, 3500, 7000, 1500];
+    const totalPrices = prices.reduce((acc, price) => acc + price, 0);
+    console.log(totalPrices);
+
+    // What is accumulated value?
+    // 0 + 1000 = 1000
+    // 1000 + 3500 = 4500
+    // 4500 + 7000 = 11500
+    // 11500 + 1500 = 13000
+
+
+}
+
+{
+    const products = [
+        {
+            name: "Laptop",
+            price: 500000,
+            category: "Electronics"
+        },
+        {
+            name: "Office Chair",
+            price: 85000,
+            category: "Furniture"
+        },
+        {
+            name: "Backpack",
+            price: 25000,
+            category: "Accessories"
+        },
+        {
+            name: "Headphones",
+            price: 45000,
+            category: "Electronics"
+        }
+    ];
+
+    // Using implicit arrow function
+    // const totalProductCost = products.reduce((acc, product) => acc + product.price, 0);
+
+    // Explicit
+    const totalProductCost = products.reduce((acc, product) => {
+        return acc + product.price
+    }, 0);
+    console.log(totalProductCost);
+}
+
+
+{
+    const products = [
+        {
+            name: "Laptop",
+            price: 500000,
+            category: "Electronics",
+            quantity: 2
+        },
+        {
+            name: "Office Chair",
+            price: 85000,
+            category: "Furniture",
+            quantity: 5
+        },
+    ];
+
+    const totalPrice = products.reduce((acc, product) => {
+        return acc + (product.price * product.quantity);
+    }, 0);
+
+    console.log(totalPrice);
+}
+
+// ================= Class Activity ==================
+
+// const products = ["laptop - 500", "bag - 100", "phoneStand - 50"];
+
+/* 
+Using the map method return a new array with the structure 
+{
+    productName: laptop,
+    price: 500
+}
+*/
+
+const sales = [
+ { product: "Laptop", quantity: 3, price: 250000 },
+ { product: "Mouse", quantity: 10, price: 5000 },
+ { product: "Keyboard", quantity: 5, price: 15000 }
+];
+
+// Using the reduce method, get the total sales amount.
+
+
+{
+    const products = ["laptop - 500", "bag - 100", "phoneStand - 50"];
+
+    const items = products.map(product => {
+        const splittedText = product.split(" - "); //  EX: [laptop, 500]
+
+        return {
+            productName: `${splittedText[0]}`,
+            price: `${splittedText[1]}`,
+        }
+    });
+    console.log(items);
+}
